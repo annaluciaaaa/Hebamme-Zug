@@ -143,9 +143,9 @@
     }
     .hero h1 em { font-style:normal; color:inherit; }
     .hero-quote {
-      font-family:'Cormorant Garamond', serif;
-      font-size:1rem; font-style:italic; color:var(--text-light);
-      line-height:1.7; max-width:440px; margin-bottom:36px;
+      font-family:'Nunito', sans-serif;
+      font-size:1.05rem; font-style:normal; font-weight:300;
+      color:var(--text-light); line-height:1.8; max-width:440px; margin-bottom:36px;
       padding-left:16px; border-left:2px solid var(--pink);
     }
     .btn-primary {
@@ -237,9 +237,7 @@
     .begleitet-img { display:none; }
     .begleitet-content { text-align:center; }
     .begleitet-text {
-      font-family:'Cormorant Garamond', serif;
-      font-size:clamp(1rem,1.8vw,1.2rem);
-      font-weight:300; font-style:italic;
+      font-size:0.97rem; font-weight:300; font-style:normal;
       color:var(--text-light); line-height:1.9; margin-bottom:16px;
     }
 
@@ -278,8 +276,8 @@
       font-size:1.4rem; color:var(--brown); margin-bottom:12px; font-weight:600;
     }
     .service-text {
-      font-size:0.88rem; font-weight:300; color:var(--text-light);
-      line-height:1.8; margin-bottom:18px;
+      font-size:0.97rem; font-weight:300; color:var(--text-light);
+      line-height:1.9; margin-bottom:18px;
     }
     .service-list { list-style:none; }
     .service-list li {
@@ -307,8 +305,8 @@
       position:absolute; top:20px; left:28px;
     }
     .test-text {
-      font-size:0.92rem; font-weight:300; color:var(--text-light);
-      line-height:1.85; margin-top:20px; font-style:italic;
+      font-size:0.97rem; font-weight:300; color:var(--text-light);
+      line-height:1.9; margin-top:20px; font-style:italic;
     }
     .test-author {
       margin-top:20px; font-size:0.78rem; font-weight:600;
@@ -427,6 +425,9 @@
       font-size:1.3rem; color:var(--brown); margin-bottom:16px;
     }
     .impressum-text { font-size:0.78rem; color:var(--text-light); line-height:1.9; max-width:700px; }
+    .impressum-text a { color:var(--text-light); text-decoration:none; }
+    a { text-decoration:none; }
+    .cd-value, .cd-value a { text-decoration:none; color:var(--text); }
 
     /* ── FOOTER ── */
     footer {
@@ -487,6 +488,22 @@
       .test-grid { grid-template-columns:1fr 1fr; }
       .contact { grid-template-columns:1fr; }
       .contact-img { min-height:380px; }
+    }
+
+    /* ── PHONE LANDSCAPE ── */
+    @media (max-width:900px) and (orientation:landscape) {
+      .hero { grid-template-columns:1fr 1fr; min-height:100vh; }
+      .hero-right { min-height:100%; max-height:none; }
+      .hero-img { min-height:100%; background-position:center top; }
+      .hero-left { padding:60px 32px; }
+      .about { grid-template-columns:1fr 1fr; gap:24px; }
+      .about-img-1 { min-height:280px; max-height:360px; aspect-ratio:unset; }
+      .service-photo { height:180px; }
+      .services-grid { grid-template-columns:1fr 1fr; }
+      .test-grid { grid-template-columns:1fr 1fr; }
+      .contact-img { min-height:280px; }
+      .photo-band { height:240px; grid-template-columns:1fr 1fr 1fr; }
+      .photo-band .band-3 { display:block !important; }
     }
   </style>
 
@@ -626,8 +643,8 @@
         <span data-lang="en" class="inline">My Services</span>
       </span>
       <h2 class="section-title">
-        <span data-lang="de">Begleitung mit Herz<br>in jeder Phase</span>
-        <span data-lang="en">Caring support with heart<br>at every stage</span>
+        <span data-lang="de">Begleitung mit Herz</span>
+        <span data-lang="en">Caring support with heart</span>
       </h2>
     </div>
     <div class="services-grid">
@@ -786,7 +803,7 @@
   <p class="impressum-text">
     <strong>Behütet &amp; Begleitet – Michaela Guggenbichler</strong><br>
     Blegistrasse 1 · 6343 Rotkreuz · Schweiz<br>
-    Tel: +41 79 883 83 39 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfa2a6aca7a6e1a8baa8a8aaa1ada6aca7a3aabd8fada3baaab8a6a1e1aca7">[email&#160;protected]</a><br><br>
+    Tel: +41 79 883 83 39 · michi.guggenbichler@bluewin.ch<br><br>
     <strong>Haftungshinweis:</strong> Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt von verlinkten Seiten sind ausschliesslich deren Betreiber verantwortlich.<br><br>
     <strong>Datenschutz:</strong> Die Sicherheit Ihrer persönlichen Daten ist uns wichtig. Alle Ihre Angaben werden streng vertraulich behandelt und gemäss den Schweizer Datenschutzbestimmungen verarbeitet. Eine Weitergabe der Daten an Dritte erfolgt nicht.
   </p>
@@ -796,7 +813,7 @@
   <p class="impressum-text">
     <strong>Behütet &amp; Begleitet – Michaela Guggenbichler</strong><br>
     Blegistrasse 1 · 6343 Rotkreuz · Switzerland<br>
-    Tel: +41 79 883 83 39 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3b5652585352155c4e5c5c5e5559525853575e497b59574e5e4c5255155853">[email&#160;protected]</a><br><br>
+    Tel: +41 79 883 83 39 · michi.guggenbichler@bluewin.ch<br><br>
     <strong>Disclaimer:</strong> Despite careful review, we assume no liability for the content of external links. The operators of linked pages are solely responsible for their content.<br><br>
     <strong>Privacy:</strong> The security of your personal data is important to us. All information you provide is treated with strict confidentiality and processed in accordance with Swiss data protection law. Your data will not be passed on to third parties.
   </p>
