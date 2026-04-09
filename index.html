@@ -584,7 +584,7 @@
 
   <!-- MOBILE MENU -->
 
-  <div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu" style="display:none;">
     <a href="#begleitet" onclick="closeMenu()">
       <span data-lang="de" class="inline">Ich begleite euch</span>
       <span data-lang="en" class="inline">My Care</span>
@@ -911,21 +911,23 @@ if (btn) btn.href = 'mailto:' + email;
 function toggleMenu() {
   var menu = document.getElementById('mobile-menu');
   var burger = document.getElementById('hamburger');
-  menu.classList.toggle('open');
-  burger.classList.toggle('open');
-  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  var isOpen = menu.style.display === 'flex';
+  menu.style.display = isOpen ? 'none' : 'flex';
+  burger.classList.toggle('open', !isOpen);
+  document.body.style.overflow = isOpen ? '' : 'hidden';
 }
 
 function closeMenu() {
   var menu = document.getElementById('mobile-menu');
   var burger = document.getElementById('hamburger');
-  menu.classList.remove('open');
+  menu.style.display = 'none';
   burger.classList.remove('open');
   document.body.style.overflow = '';
 }
 
 function setLang(lang) {
-  document.body.className = 'lang-' + lang;
+  document.body.classList.remove('lang-de', 'lang-en');
+  document.body.classList.add('lang-' + lang);
   document.querySelectorAll('.lang-btn').forEach(function(b) {
     b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
   });
