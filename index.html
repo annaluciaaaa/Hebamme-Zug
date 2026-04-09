@@ -113,6 +113,40 @@
     .lang-btn.active { background:var(--pink); color:white; }
     .lang-sep { color:var(--sand); font-size:0.8rem; }
 
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display:none;
+      flex-direction:column; justify-content:center;
+      gap:5px; cursor:pointer; padding:8px 6px;
+      background:none; border:none; z-index:200;
+    }
+    .hamburger span {
+      display:block !important; width:24px; height:2px;
+      background:var(--pink-deep); border-radius:2px;
+      transition:all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity:0; }
+    .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display:none; position:fixed; top:0; left:0; right:0; bottom:0;
+      background:rgba(250,248,244,0.98); backdrop-filter:blur(20px);
+      z-index:150; flex-direction:column;
+      justify-content:center; align-items:center; gap:36px;
+    }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a {
+      font-family:'Cormorant Garamond', serif;
+      font-size:2rem; font-weight:400; color:var(--brown);
+      text-decoration:none; letter-spacing:2px;
+      transition:color 0.2s;
+    }
+    .mobile-menu a:hover { color:var(--pink-dark); }
+    .mobile-menu .mobile-lang {
+      display:flex; gap:8px; margin-top:16px;
+    }
+
     /* ── HERO ── */
     .hero {
       min-height:100vh;
@@ -452,6 +486,8 @@
     @media (max-width:900px) {
       nav { padding:14px 20px; }
       .nav-center { display:none !important; }
+      .hamburger { display:flex !important; }
+      .lang-toggle { display:flex; }
       .hero { grid-template-columns:1fr; }
       .hero-right { min-height:70vw; max-height:500px; }
       .hero-left { padding:36px 24px; }
@@ -537,7 +573,31 @@
       <span class="lang-sep">|</span>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#begleitet" onclick="closeMenu()">
+      <span data-lang="de" class="inline">Ich begleite euch</span>
+      <span data-lang="en" class="inline">My Care</span>
+    </a>
+    <a href="#about" onclick="closeMenu()">
+      <span data-lang="de" class="inline">Über mich</span>
+      <span data-lang="en" class="inline">About</span>
+    </a>
+    <a href="#services" onclick="closeMenu()">
+      <span data-lang="de" class="inline">Leistungen</span>
+      <span data-lang="en" class="inline">Services</span>
+    </a>
+    <a href="#contact" onclick="closeMenu()">
+      <span data-lang="de" class="inline">Kontakt</span>
+      <span data-lang="en" class="inline">Contact</span>
+    </a>
+  </div>
 
   <!-- HERO -->
 
@@ -841,6 +901,22 @@
     var btn = document.getElementById('email-btn');
     if (display) display.textContent = email;
     if (btn) btn.href = 'mailto:' + email;
+
+    function toggleMenu() {
+      var menu = document.getElementById('mobile-menu');
+      var burger = document.getElementById('hamburger');
+      menu.classList.toggle('open');
+      burger.classList.toggle('open');
+      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+      var menu = document.getElementById('mobile-menu');
+      var burger = document.getElementById('hamburger');
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
     function setLang(lang) {
       document.body.className = 'lang-' + lang;
