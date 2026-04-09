@@ -82,7 +82,7 @@
 
     /* ── NAV ── */
     nav {
-      position:fixed; top:0; left:0; right:0; z-index:100;
+      position:fixed; top:0; left:0; right:0; z-index:200;
       padding:16px 56px;
       display:flex; justify-content:space-between; align-items:center;
       background:rgba(253,245,238,0.95);
@@ -118,7 +118,8 @@
       display:none;
       flex-direction:column; justify-content:center;
       gap:5px; cursor:pointer; padding:8px 6px;
-      background:none; border:none; z-index:200;
+      background:none; border:none; z-index:300;
+      position:relative;
     }
     .hamburger span {
       display:block !important; width:24px; height:2px;
@@ -132,7 +133,7 @@
     .mobile-menu {
       display:none; position:fixed; top:0; left:0; right:0; bottom:0;
       background:rgba(250,248,244,0.98); backdrop-filter:blur(20px);
-      z-index:150; flex-direction:column;
+      z-index:160; flex-direction:column;
       justify-content:center; align-items:center; gap:36px;
     }
     .mobile-menu.open { display:flex; }
@@ -201,7 +202,7 @@
     .hero-img {
       width:100%; height:100%; object-fit:cover;
       background-image:url('Mimi-Baby-hoch.JPG');
-      background-size:cover; background-position:center top;
+      background-size:cover; background-position:center 30%;
       min-height:600px;
     }
     .hero-overlay {
@@ -239,7 +240,8 @@
       height:100%;
       min-height:600px;
       border-radius:24px;
-      background-position:center;
+      background-size:cover;
+      background-position:50% 30%;
     }
     .about-img-2 { display:none; }
     .section-eyebrow {
@@ -357,9 +359,9 @@
       transition:transform 0.6s ease;
     }
     .band-img:hover { transform:scale(1.04); }
-    .band-1 { background-image:url('Mimi-Familie.JPG'); }
-    .band-2 { background-image:url('Mimi-Baby-hoch.JPG'); background-position:center; }
-    .band-3 { background-image:url('Mimi-tanzen.JPG'); background-position:top; }
+    .band-1 { background-image:url('Mimi-Familie.JPG'); background-position:center; }
+    .band-2 { background-image:url('Mimi-Baby-hoch.JPG'); background-position:center 40%; }
+    .band-3 { background-image:url('Mimi-tanzen.JPG'); background-position:center; }
 
     /* ── QUOTE ── */
     .quote-section { background:var(--pink-deep); padding:80px 72px; text-align:center; }
@@ -517,8 +519,9 @@
     @media (min-width:768px) and (max-width:900px) {
       .hero { grid-template-columns:1fr; }
       .hero-right { min-height:50vw; max-height:440px; }
-      .hero-img { background-position:center 20%; }
-      .about-img-1 { aspect-ratio:16/9; max-height:380px; }
+      .hero-img { background-position:center 30%; }
+      .about { grid-template-columns:1fr; }
+      .about-img-1 { aspect-ratio:3/2; max-height:420px; min-height:unset; background-size:cover; background-position:50% 30%; }
       .service-photo { height:260px; }
       .services-grid { grid-template-columns:1fr 1fr; }
       .test-grid { grid-template-columns:1fr 1fr; }
@@ -530,16 +533,17 @@
     @media (max-width:900px) and (orientation:landscape) {
       .hero { grid-template-columns:1fr 1fr; min-height:100vh; }
       .hero-right { min-height:100%; max-height:none; }
-      .hero-img { min-height:100%; background-position:center top; }
+      .hero-img { min-height:100%; background-position:center 30%; }
       .hero-left { padding:60px 32px; }
       .about { grid-template-columns:1fr 1fr; gap:24px; }
-      .about-img-1 { min-height:280px; max-height:360px; aspect-ratio:unset; }
+      .about-img-1 { min-height:280px; max-height:360px; aspect-ratio:unset; background-position:50% 30%; }
       .service-photo { height:180px; }
       .services-grid { grid-template-columns:1fr 1fr; }
       .test-grid { grid-template-columns:1fr 1fr; }
       .contact-img { min-height:280px; }
       .photo-band { height:240px; grid-template-columns:1fr 1fr 1fr; }
       .photo-band .band-3 { display:block !important; }
+      .band-2 { background-position:center 40%; }
     }
   </style>
 
@@ -863,7 +867,7 @@
   <p class="impressum-text">
     <strong>Behütet &amp; Begleitet – Michaela Guggenbichler</strong><br>
     Blegistrasse 1 · 6343 Rotkreuz · Schweiz<br>
-    Tel: +41 79 883 83 39 · michi.guggenbichler@bluewin.ch<br><br>
+    Tel: +41 79 883 83 39 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c1aca8a2a9a8efa6b4a6a6a4afa3a8a2a9ada4b381a3adb4a4b6a8afefa2a9">[email&#160;protected]</a><br><br>
     <strong>Haftungshinweis:</strong> Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt von verlinkten Seiten sind ausschliesslich deren Betreiber verantwortlich.<br><br>
     <strong>Datenschutz:</strong> Die Sicherheit Ihrer persönlichen Daten ist uns wichtig. Alle Ihre Angaben werden streng vertraulich behandelt und gemäss den Schweizer Datenschutzbestimmungen verarbeitet. Eine Weitergabe der Daten an Dritte erfolgt nicht.
   </p>
@@ -873,7 +877,7 @@
   <p class="impressum-text">
     <strong>Behütet &amp; Begleitet – Michaela Guggenbichler</strong><br>
     Blegistrasse 1 · 6343 Rotkreuz · Switzerland<br>
-    Tel: +41 79 883 83 39 · michi.guggenbichler@bluewin.ch<br><br>
+    Tel: +41 79 883 83 39 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="137e7a707b7a3d74667474767d717a707b7f766153717f6676647a7d3d707b">[email&#160;protected]</a><br><br>
     <strong>Disclaimer:</strong> Despite careful review, we assume no liability for the content of external links. The operators of linked pages are solely responsible for their content.<br><br>
     <strong>Privacy:</strong> The security of your personal data is important to us. All information you provide is treated with strict confidentiality and processed in accordance with Swiss data protection law. Your data will not be passed on to third parties.
   </p>
@@ -893,37 +897,41 @@
     <div class="footer-text">Made with <span class="footer-heart">♥</span></div>
   </footer>
 
-  <script>
-    var u = 'michi.guggenbichler';
-    var d = 'bluewin.ch';
-    var email = u + '@' + d;
-    var display = document.getElementById('email-display');
-    var btn = document.getElementById('email-btn');
-    if (display) display.textContent = email;
-    if (btn) btn.href = 'mailto:' + email;
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
-    function toggleMenu() {
-      var menu = document.getElementById('mobile-menu');
-      var burger = document.getElementById('hamburger');
-      menu.classList.toggle('open');
-      burger.classList.toggle('open');
-      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-    }
+```
+var u = 'michi.guggenbichler';
+var d = 'bluewin.ch';
+var email = u + '@' + d;
+var display = document.getElementById('email-display');
+var btn = document.getElementById('email-btn');
+if (display) display.textContent = email;
+if (btn) btn.href = 'mailto:' + email;
 
-    function closeMenu() {
-      var menu = document.getElementById('mobile-menu');
-      var burger = document.getElementById('hamburger');
-      menu.classList.remove('open');
-      burger.classList.remove('open');
-      document.body.style.overflow = '';
-    }
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var burger = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  burger.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
 
-    function setLang(lang) {
-      document.body.className = 'lang-' + lang;
-      document.querySelectorAll('.lang-btn').forEach(function(b) {
-        b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
-      });
-    }
+function closeMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var burger = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  burger.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function setLang(lang) {
+  document.body.className = 'lang-' + lang;
+  document.querySelectorAll('.lang-btn').forEach(function(b) {
+    b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
+  });
+}
+```
+
   </script>
 
 </body>
