@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Impressum & Datenschutz – Michaela Guggenbichler</title>
+  <meta name="robots" content="noindex, follow"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream:     #faf8f4;
+      --blush:     #e4ddd2;
+      --pink:      #b8a898;
+      --pink-dark: #8a7868;
+      --pink-deep: #5a4838;
+      --sand:      #e0d8cc;
+      --brown:     #2a2218;
+      --text:      #382e24;
+      --text-light:#8a7e72;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:'Nunito', sans-serif;
+      background:var(--blush);
+      color:var(--text);
+      padding:0;
+    }
+
+```
+/* ── HEADER ── */
+.page-header {
+  background:var(--pink-dark);
+  padding:48px 72px 40px;
+}
+.back-link {
+  display:inline-flex; align-items:center; gap:8px;
+  color:rgba(250,248,244,0.8); text-decoration:none;
+  font-size:0.82rem; letter-spacing:1px; text-transform:uppercase;
+  font-weight:600; margin-bottom:24px;
+  transition:color 0.2s;
+}
+.back-link:hover { color:white; }
+.page-header h1 {
+  font-family:'Cormorant Garamond', serif;
+  font-size:2.4rem; font-weight:400; color:white;
+  line-height:1.2;
+}
+.page-header p {
+  color:rgba(250,248,244,0.7); font-size:0.9rem;
+  margin-top:8px; font-weight:300;
+}
+
+/* ── LANG TOGGLE ── */
+.lang-bar {
+  background:var(--cream);
+  padding:12px 72px;
+  border-bottom:1px solid var(--sand);
+  display:flex; gap:8px; align-items:center;
+}
+.lang-btn {
+  background:none; border:none; cursor:pointer;
+  font-family:'Nunito', sans-serif;
+  font-size:0.82rem; font-weight:600;
+  letter-spacing:1px; padding:6px 12px;
+  border-radius:20px; transition:all 0.2s;
+  color:var(--text-light);
+}
+.lang-btn.active { background:var(--pink); color:white; }
+.lang-sep { color:var(--sand); }
+
+/* ── CONTENT ── */
+.content {
+  max-width:860px; margin:0 auto;
+  padding:60px 72px 80px;
+}
+.section-block {
+  margin-bottom:52px;
+}
+.section-block h2 {
+  font-family:'Cormorant Garamond', serif;
+  font-size:1.5rem; font-weight:600;
+  color:var(--brown); margin-bottom:16px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--sand);
+}
+.section-block h3 {
+  font-size:0.95rem; font-weight:600;
+  color:var(--brown); margin:20px 0 8px;
+  text-transform:uppercase; letter-spacing:0.5px;
+}
+.section-block p {
+  font-size:0.95rem; font-weight:300;
+  color:var(--text-light); line-height:1.9;
+  margin-bottom:12px;
+}
+.section-block p strong { color:var(--text); font-weight:600; }
+.section-block a { color:var(--pink-dark); }
+.contact-box {
+  background:white; border-radius:16px;
+  padding:24px 28px; margin-top:16px;
+  border:1px solid var(--sand);
+  font-size:0.95rem; color:var(--text-light);
+  line-height:1.9; font-weight:300;
+}
+.contact-box strong { color:var(--text); font-weight:600; }
+
+/* ── FOOTER ── */
+.page-footer {
+  background:var(--pink-dark);
+  padding:24px 72px;
+  text-align:center;
+  font-size:0.8rem; color:rgba(250,248,244,0.7);
+}
+.page-footer a { color:rgba(250,248,244,0.9); text-decoration:none; }
+
+/* ── LANGUAGE ── */
+body.lang-de .en { display:none; }
+body.lang-de .de { display:revert; }
+body.lang-en .de { display:none; }
+body.lang-en .en { display:revert; }
+
+@media (max-width:900px) {
+  .page-header { padding:36px 24px 28px; }
+  .lang-bar { padding:12px 24px; }
+  .content { padding:40px 24px 60px; }
+  .page-footer { padding:20px 24px; }
+}
+```
+
+  </style>
+</head>
+<body class="lang-de">
+
+  <div class="page-header">
+    <a href="index.html" class="back-link">← <span class="de">Zurück zur Website</span><span class="en">Back to website</span></a>
+    <h1>
+      <span class="de">Impressum &amp; Datenschutz</span>
+      <span class="en">Legal Notice &amp; Privacy Policy</span>
+    </h1>
+    <p>Behütet &amp; Begleitet – Michaela Guggenbichler</p>
+  </div>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+
+  <div class="content">
+
+```
+<!-- ══ DEUTSCH ══ -->
+<div class="de">
+
+  <div class="section-block">
+    <h2>Impressum</h2>
+    <div class="contact-box">
+      <strong>Behütet &amp; Begleitet – Michaela Guggenbichler</strong><br>
+      Blegistrasse 1<br>
+      6343 Rotkreuz<br>
+      Schweiz<br><br>
+      Telefon: <a href="tel:+41798838339">+41 79 883 83 39</a><br>
+      E-Mail: <a id="email-de" href="#">michi.guggenbichler@bluewin.ch</a>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <h2>Haftungsausschluss</h2>
+    <h3>Haftung für Inhalte</h3>
+    <p>Die Autorin übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der auf dieser Website bereitgestellten Informationen. Haftungsansprüche wegen Schäden materieller oder immaterieller Art, die aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen entstanden sind, werden ausgeschlossen.</p>
+    <h3>Haftung für Links</h3>
+    <p>Verweise und Links auf Webseiten Dritter liegen ausserhalb des Verantwortungsbereichs der Autorin. Es wird jegliche Verantwortung für solche Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten erfolgen auf eigene Gefahr des Nutzers oder der Nutzerin.</p>
+    <h3>Urheberrechte</h3>
+    <p>Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website gehören ausschliesslich Michaela Guggenbichler. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsinhaberin im Voraus einzuholen.</p>
+  </div>
+
+  <div class="section-block">
+    <h2>Datenschutzerklärung</h2>
+    <p>Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Die Betreiberin dieser Seiten nimmt den Schutz Ihrer persönlichen Daten sehr ernst. Ihre Daten werden vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung behandelt.</p>
+
+    <h3>Verantwortliche Stelle</h3>
+    <div class="contact-box">
+      <strong>Michaela Guggenbichler</strong><br>
+      Blegistrasse 1 · 6343 Rotkreuz · Schweiz<br>
+      <a id="email-de-2" href="#">michi.guggenbichler@bluewin.ch</a>
+    </div>
+
+    <h3>Erhebung und Verarbeitung von Personendaten</h3>
+    <p>Diese Website erhebt und speichert automatisch in Server-Logfiles Informationen, die Ihr Browser übermittelt. Dies sind insbesondere IP-Adresse, Datum und Uhrzeit der Anfrage, Browsertyp und -version sowie das Betriebssystem. Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und dienen ausschliesslich der technischen Bereitstellung der Website.</p>
+    <p>Personenbezogene Daten, die Sie uns über das Kontaktformular oder per E-Mail mitteilen (Name, E-Mail-Adresse, Nachricht), werden ausschliesslich zur Bearbeitung Ihrer Anfrage verwendet und anschliessend gelöscht. Eine Weitergabe an Dritte erfolgt nicht.</p>
+
+    <h3>Kontaktformular &amp; E-Mail</h3>
+    <p>Wenn Sie uns per Kontaktformular oder E-Mail kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage und für mögliche Rückfragen gespeichert. Diese Daten geben wir nicht ohne Ihre ausdrückliche Einwilligung weiter. Bitte beachten Sie: Die Übertragung per E-Mail kann Sicherheitslücken aufweisen. Für die Übermittlung vertraulicher medizinischer Informationen empfehlen wir daher den direkten telefonischen Kontakt.</p>
+
+    <h3>WhatsApp</h3>
+    <p>Diese Website bietet die Möglichkeit, über WhatsApp Kontakt aufzunehmen. Bitte beachten Sie, dass WhatsApp (Meta Platforms Inc.) die Kommunikationsdaten auf eigenen Servern speichert. Für die Datenschutzpraktiken von WhatsApp gilt die <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank">Datenschutzrichtlinie von WhatsApp</a>. Für die Übermittlung vertraulicher Gesundheitsdaten empfehlen wir den direkten telefonischen Kontakt.</p>
+
+    <h3>Google Fonts</h3>
+    <p>Diese Website verwendet Google Fonts (Google LLC), die beim Seitenaufruf vom Google-Server geladen werden. Dabei wird Ihre IP-Adresse an Google übermittelt. Google hat sich verpflichtet, einen angemessenen Datenschutz gemäss den geltenden Bestimmungen zu gewährleisten. Weitere Informationen finden Sie in der <a href="https://policies.google.com/privacy" target="_blank">Datenschutzerklärung von Google</a>.</p>
+
+    <h3>Cookies</h3>
+    <p>Diese Website verwendet keine Tracking-Cookies. Es werden lediglich technisch notwendige Informationen im Browser gespeichert, die für den Betrieb der Website erforderlich sind.</p>
+
+    <h3>Ihre Rechte</h3>
+    <p>Gestützt auf das Datenschutzgesetz (DSG) haben Sie das Recht auf Auskunft über die zu Ihrer Person gespeicherten Daten, das Recht auf Berichtigung unrichtiger Daten sowie das Recht auf Löschung Ihrer Daten, sofern keine gesetzliche Aufbewahrungspflicht besteht. Für die Geltendmachung Ihrer Rechte wenden Sie sich bitte an die oben genannte verantwortliche Stelle.</p>
+
+    <h3>Änderungen dieser Datenschutzerklärung</h3>
+    <p>Wir behalten uns vor, diese Datenschutzerklärung jederzeit anzupassen. Es gilt die jeweils auf dieser Website publizierte aktuelle Fassung.</p>
+  </div>
+
+</div><!-- /de -->
+
+<!-- ══ ENGLISH ══ -->
+<div class="en">
+
+  <div class="section-block">
+    <h2>Legal Notice</h2>
+    <div class="contact-box">
+      <strong>Behütet &amp; Begleitet – Michaela Guggenbichler</strong><br>
+      Blegistrasse 1<br>
+      6343 Rotkreuz<br>
+      Switzerland<br><br>
+      Phone: <a href="tel:+41798838339">+41 79 883 83 39</a><br>
+      E-Mail: <a id="email-en" href="#">michi.guggenbichler@bluewin.ch</a>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <h2>Disclaimer</h2>
+    <h3>Liability for Content</h3>
+    <p>The operator assumes no liability for the accuracy, completeness, or timeliness of the information provided on this website. Claims for damages arising from the use or non-use of published information are excluded.</p>
+    <h3>Liability for Links</h3>
+    <p>References and links to third-party websites are outside the operator's area of responsibility. Any responsibility for such websites is rejected. Access to and use of such websites is at the user's own risk.</p>
+    <h3>Copyright</h3>
+    <p>All copyright and other rights to content, images, photos, or other files on this website belong exclusively to Michaela Guggenbichler. Prior written consent is required for reproduction of any elements.</p>
+  </div>
+
+  <div class="section-block">
+    <h2>Privacy Policy</h2>
+    <p>Based on Article 13 of the Swiss Federal Constitution and the federal data protection legislation (Data Protection Act, DPA), every person is entitled to protection of their privacy and protection against misuse of their personal data. The operator of this website takes the protection of your personal data very seriously. Your data is treated confidentially and in accordance with the applicable data protection regulations and this privacy policy.</p>
+
+    <h3>Data Controller</h3>
+    <div class="contact-box">
+      <strong>Michaela Guggenbichler</strong><br>
+      Blegistrasse 1 · 6343 Rotkreuz · Switzerland<br>
+      <a id="email-en-2" href="#">michi.guggenbichler@bluewin.ch</a>
+    </div>
+
+    <h3>Collection and Processing of Personal Data</h3>
+    <p>This website automatically collects and stores information in server log files that your browser transmits, including IP address, date and time of the request, browser type and version, and operating system. This data is not combined with other data sources and is used solely for the technical provision of the website.</p>
+    <p>Personal data you provide via the contact form or by email (name, email address, message) is used exclusively to process your enquiry and is deleted thereafter. Data is not passed on to third parties.</p>
+
+    <h3>Contact Form &amp; Email</h3>
+    <p>When you contact us via the contact form or email, your details are stored for processing the enquiry and any follow-up questions. We do not share this data without your explicit consent. Please note that transmission by email may have security vulnerabilities. For the transmission of confidential medical information, we recommend direct telephone contact.</p>
+
+    <h3>WhatsApp</h3>
+    <p>This website offers the option to get in touch via WhatsApp. Please note that WhatsApp (Meta Platforms Inc.) stores communication data on its own servers. WhatsApp's data protection practices are governed by the <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank">WhatsApp Privacy Policy</a>. For the transmission of confidential health information, we recommend direct telephone contact.</p>
+
+    <h3>Google Fonts</h3>
+    <p>This website uses Google Fonts (Google LLC), which are loaded from Google's servers when the page is accessed. Your IP address is transmitted to Google in the process. Further information can be found in <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+
+    <h3>Cookies</h3>
+    <p>This website does not use tracking cookies. Only technically necessary information is stored in the browser as required for the operation of the website.</p>
+
+    <h3>Your Rights</h3>
+    <p>Under the Data Protection Act (DPA), you have the right to information about the data stored about you, the right to rectification of incorrect data, and the right to deletion of your data, provided there is no legal obligation to retain it. To exercise your rights, please contact the data controller named above.</p>
+
+    <h3>Changes to this Privacy Policy</h3>
+    <p>We reserve the right to amend this privacy policy at any time. The current version published on this website shall apply at all times.</p>
+  </div>
+
+</div><!-- /en -->
+```
+
+  </div><!-- /content -->
+
+  <div class="page-footer">
+    <a href="index.html">← <span class="de">Zurück zur Website</span><span class="en">Back to website</span></a>
+    &nbsp;·&nbsp; © 2025 Michaela Guggenbichler
+  </div>
+
+  <script>
+    // E-Mail zusammensetzen
+    (function() {
+      var email = 'michi.guggenbichler' + '@' + 'bluewin.ch';
+      ['email-de','email-de-2','email-en','email-en-2'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) { el.textContent = email; el.href = 'mailto:' + email; }
+      });
+    })();
+
+    function setLang(lang) {
+      document.body.classList.remove('lang-de','lang-en');
+      document.body.classList.add('lang-' + lang);
+      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
+
+</body>
+</html>
