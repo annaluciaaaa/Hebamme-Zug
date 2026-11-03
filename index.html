@@ -887,6 +887,16 @@
         trackEvent('sprache-en', 'Sprache auf Englisch gewechselt');
       } else if (onclick.indexOf("setLang('de')") !== -1) {
         trackEvent('sprache-de', 'Sprache auf Deutsch gewechselt');
+      } else if (el.closest('.testimonials')) {
+        trackEvent('klick-bewertungen', 'Google-Bewertungen angeklickt');
+      } else if (href.indexOf('impressum.html') !== -1) {
+        trackEvent('klick-impressum', 'Impressum geöffnet');
+      } else if (href.indexOf('lukasschnurrenberger') !== -1) {
+        trackEvent('klick-fotograf', 'Link zum Fotografen geklickt');
+      } else if (el.id === 'hamburger') {
+        if (document.getElementById('mobile-menu').classList.contains('open')) {
+          trackEvent('handy-menu-geoeffnet', 'Handy-Menü geöffnet');
+        }
       } else if (el.classList.contains('btn-primary')) {
         trackEvent('klick-hauptbutton', 'Hauptbutton "Kontaktieren Sie mich" geklickt');
       } else if (href.charAt(0) === '#' && href.length > 1) {
@@ -899,7 +909,7 @@
       var seen = {};
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
-          var id = entry.target.id;
+          var id = entry.target.getAttribute('data-track');
           if (entry.isIntersecting && !seen[id]) {
             seen[id] = true;
             trackEvent('gesehen-' + id, 'Abschnitt gesehen: ' + id);
@@ -907,11 +917,58 @@
           }
         });
       }, { rootMargin: '0px 0px -30% 0px' });
-      ['begleitet', 'about', 'services', 'contact'].forEach(function(id) {
-        var s = document.getElementById(id);
-        if (s) observer.observe(s);
+      [
+        ['#begleitet', 'begleitet'],
+        ['#about', 'about'],
+        ['#services', 'services'],
+        ['.testimonials', 'bewertungen'],
+        ['.quote-section', 'zitat'],
+        ['#contact', 'contact']
+      ].forEach(function(pair) {
+        var s = document.querySelector(pair[0]);
+        if (s) {
+          s.setAttribute('data-track', pair[1]);
+          observer.observe(s);
+        }
       });
     }
+
+    // Bis ganz nach unten gescrollt
+    var bottomDone = false;
+    window.addEventListener('scroll', function() {
+      if (bottomDone) return;
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+        bottomDone = true;
+        trackEvent('gesehen-ganz-unten', 'Bis ganz nach unten gescrollt');
+      }
+    }, { passive: true });
+
+    // Verweildauer: zählt nur, solange die Seite wirklich offen im Vordergrund ist
+    (function() {
+      var seconds = 0;
+      var marks = [[10, '10-sekunden'], [30, '30-sekunden'], [60, '1-minute'], [120, '2-minuten'], [300, '5-minuten']];
+      var timer = setInterval(function() {
+        if (document.visibilityState !== 'visible') return;
+        seconds++;
+        if (marks.length && seconds >= marks[0][0]) {
+          var m = marks.shift();
+          trackEvent('verweildauer-' + m[1], 'Auf der Seite geblieben: ' + m[1]);
+          if (!marks.length) clearInterval(timer);
+        }
+      }, 1000);
+    })();
+
+    // Kopieren: z.B. wenn jemand die Telefonnummer markiert und kopiert
+    document.addEventListener('copy', function() {
+      var text = String(window.getSelection() || '');
+      if (/883\s?83\s?39/.test(text)) {
+        trackEvent('kopiert-telefonnummer', 'Telefonnummer kopiert');
+      } else if (text.indexOf('@') !== -1) {
+        trackEvent('kopiert-email', 'E-Mail-Adresse kopiert');
+      } else if (text.trim()) {
+        trackEvent('kopiert-text', 'Text kopiert');
+      }
+    });
   </script>
 
 <script data-goatcounter="https://annaa.goatcounter.com/count"
