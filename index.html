@@ -864,6 +864,54 @@
       document.getElementById('btn-de').classList.toggle('active', lang === 'de');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     }
+
+    // ── STATISTIK (GoatCounter-Events, ohne Cookies) ──
+    function trackEvent(name, title) {
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: name, title: title || name, event: true });
+      }
+    }
+
+    // Klicks auf Kontakt-Buttons, Menü und Sprachwahl
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('a, button');
+      if (!el) return;
+      var href = el.getAttribute('href') || '';
+      var onclick = el.getAttribute('onclick') || '';
+
+      if (href.indexOf('wa.me') !== -1) {
+        trackEvent('klick-whatsapp', 'WhatsApp-Button geklickt');
+      } else if (el.id === 'email-btn' || href.indexOf('mailto:') === 0) {
+        trackEvent('klick-email', 'E-Mail-Button geklickt');
+      } else if (onclick.indexOf("setLang('en')") !== -1) {
+        trackEvent('sprache-en', 'Sprache auf Englisch gewechselt');
+      } else if (onclick.indexOf("setLang('de')") !== -1) {
+        trackEvent('sprache-de', 'Sprache auf Deutsch gewechselt');
+      } else if (el.classList.contains('btn-primary')) {
+        trackEvent('klick-hauptbutton', 'Hauptbutton "Kontaktieren Sie mich" geklickt');
+      } else if (href.charAt(0) === '#' && href.length > 1) {
+        trackEvent('menu-' + href.slice(1), 'Menü geklickt: ' + href.slice(1));
+      }
+    });
+
+    // Wie weit gescrollt wird: jeder Abschnitt wird pro Besuch einmal gezählt
+    if ('IntersectionObserver' in window) {
+      var seen = {};
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          var id = entry.target.id;
+          if (entry.isIntersecting && !seen[id]) {
+            seen[id] = true;
+            trackEvent('gesehen-' + id, 'Abschnitt gesehen: ' + id);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -30% 0px' });
+      ['begleitet', 'about', 'services', 'contact'].forEach(function(id) {
+        var s = document.getElementById(id);
+        if (s) observer.observe(s);
+      });
+    }
   </script>
 
 <script data-goatcounter="https://annaa.goatcounter.com/count"
